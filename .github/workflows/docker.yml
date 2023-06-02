@@ -22,8 +22,8 @@ jobs:
           password: ${{ env.DOCKERHUB_TOKEN }}
       - name: Build Docker image
         run: |
-          docker build -t myapp:latest .
+          docker build -t zhanyl91/hellowordlatest .
       - name: Push Docker image
         run: |
-          docker tag myapp:latest ${{ env.DOCKER_USERNAME }}/myapp:latest
-          docker push ${{ env.DOCKER_USERNAME }}/myapp:latest
+          docker tag zhanyl91/hellowordlatest ${{ env.DOCKER_USERNAME }}/zhanyl91/hellowordlatestv1
+          docker push ${{ env.DOCKER_USERNAME }}/zhanyl91/hellowordlatest:v1
