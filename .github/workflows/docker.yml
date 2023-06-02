@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
 jobs:
   build-and-push:
@@ -19,7 +19,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ env.DOCKERHUB_USERNAME }}
-          password: ${{ env.DOCKERHUB_TOKEN }}
+          password: ${{ env.DOCKERHUB_PASSWORD }}
       - name: Build Docker image
         run: |
           docker build -t zhanyl91/hellowordlatest .
@@ -27,4 +27,3 @@ jobs:
         run: |
           docker tag zhanyl91/hellowordlatest ${{ env.DOCKER_USERNAME }}/zhanyl91/hellowordlatestv1
           docker push ${{ env.DOCKER_USERNAME }}/zhanyl91/hellowordlatest:v1
-          #
