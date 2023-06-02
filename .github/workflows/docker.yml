@@ -36,7 +36,7 @@ jobs:
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: 
+          image: zhanyl91/hellowordlatest:v1
           registry: docker.io
-          username:
-          password:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
